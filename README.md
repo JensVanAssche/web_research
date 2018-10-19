@@ -16,7 +16,7 @@ In webscraping_blog.py scrape ik blog.scrapinghub.com. Deze heeft een duidelijke
 #### Stap 4: javascript omzeilen met selenium
 Maar wat met webpages die hun attributen toevoegen met javascript? Een gewone request kan deze niet detecteren. Ik ga dus iets nieuws moeten gebruiken ipv een simpele request.\
 De oplossing is Selenium! Selenium is een webdriver die een instance van je webbrowser naar keuze uitvoert voor het de request doet. Hierdoor kan het toch de javascript gegenereerde attributen detecteren. In webscraping_selenium.py heb ik een simpel scriptje geschreven dat de top post van r/all van reddit scraped. Reddit is namelijk zo'n site die veel attributen met javascript toevoegt.\
-Enkel Selenium installeren is echter niet voldoende. Je moet nog de webdriver van je browser naar keuze downloaden. Ik heb deze toegankelijk gemaakt via het PATH zodat pyhton hier gemakkelijk aan kan. Pyhton heeft dit nodig om de instance van de browser te maken.
+Enkel Selenium installeren is echter niet voldoende. Je moet nog de webdriver van je browser naar keuze downloaden. Ik heb deze toegankelijk gemaakt via het PATH zodat python hier gemakkelijk aan kan. Python heeft dit nodig om de instance van de browser te maken.
 
 #### Bronnen:
 https://realpython.com/python-web-scraping-practical-introduction/ \
