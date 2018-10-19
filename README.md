@@ -22,8 +22,8 @@ Enkel Selenium installeren is echter niet voldoende. Je moet nog de webdriver va
 https://realpython.com/python-web-scraping-practical-introduction/ \
 https://towardsdatascience.com/an-introduction-to-web-scraping-with-python-bc9563fe8860 \
 https://www.crummy.com/software/BeautifulSoup/bs4/doc/ \
-https://www.youtube.com/watch?v=4UcqECQe5Kc
-https://enginebai.com/2017/04/12/advanced-web-scraping-in-python/
-https://selenium-python.readthedocs.io/
-https://selenium-python.readthedocs.io/installation.html
+https://www.youtube.com/watch?v=4UcqECQe5Kc \
+https://enginebai.com/2017/04/12/advanced-web-scraping-in-python/ \
+https://selenium-python.readthedocs.io/ \
+https://selenium-python.readthedocs.io/installation.html \
 https://sites.google.com/a/chromium.org/chromedriver/downloads
