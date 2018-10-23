@@ -1,6 +1,6 @@
 # web_research
 
-### New technology:
+### New technology: Webscraping
 Voor web reseach wil ik leren hoe ik moet web scrapen met python. In deze repo komt mij progress te staan.
 
 #### Stap 1: libraries voor python
