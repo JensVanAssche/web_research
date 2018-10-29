@@ -28,7 +28,7 @@ Ver moest ik niet zoeken om te weten te komen dat de drivers van de grote browse
 
 #### Stap 6: coole Bandcamp player met selenium en headless browser (bron 10)
 Ik ben een artikel tegengekomen dat een aantal hele coole dingen toont dat je kan doen met zo'n headless browser. Het artikel in kwestie legt uit hoe je van bandcamp muziek kan afspelen en je luistergedrag in een database bijhoud, allemaal in de console!!! Toen ik dit voor het eerst aan de praat kreeg viel mijn mond open. Muziek uit de console? Het is eigelijk muziek uit de headless browser uit de console. Maar nog steeds zeer cool! \
-In webscraping_bandcamp.py heb ik een (al zeg ik het zelf) vrij uitgebreide en zeer coole bandcamp muziekplayer gemaakt, waarbij je bandcamp kan navigeren, artiesten kan opzoeken en albums afspelen. De functie van je luistergedrag in een database zetten zit er nog niet in, maar dit wil ik zeker doen in de toekomst. \
+In webscraping_bandcamp.py heb ik een (al zeg ik het zelf) vrij uitgebreide en zeer coole bandcamp muziekplayer gemaakt, waarbij je bandcamp kan navigeren, artiesten kan opzoeken en albums afspelen. De functie van je luistergedrag in een database zetten zit er nog niet in, maar dit wil ik zeker toevoegen in de toekomst. \
 Het opmerkelijke is dat dit script gemaakt is zonder beautifulsoup! De driver kan op zichzelf elementen selecteren op een pagina, deze aanklikken en zoekbalken invullen. Erg spannend allemaal.
 
 #### Bronnen:
