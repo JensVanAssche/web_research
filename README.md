@@ -1,7 +1,7 @@
 # web_research
 
 ### New technology: Webscraping
-Voor web reseach wil ik leren hoe ik moet web scrapen met python. In deze repo komt mij progress te staan.
+Voor web reseach wil ik leren hoe ik moet web scrapen met python. In deze repo komt mijn progress te staan.
 
 #### Stap 1: libraries voor python
 Veel artikels schrijven over dezelfde libraries voor web scraping, namelijk requests, beautifulsoup en een csv writer. Deze ga ik dus ook gebruiken. Ik ga beginnen met een tutorial over beautifulsoup.
@@ -21,12 +21,18 @@ Maar wat met webpages die hun attributen toevoegen met javascript? Een request s
 De oplossing is Selenium! Selenium is een webdriver die een instance van je webbrowser naar keuze uitvoert voor het de request doet. Hierdoor kan het de javascript gegenereerde attributen detecteren. In webscraping_selenium.py heb ik een simpel scriptje geschreven dat de top post van r/all van reddit scraped. Reddit is namelijk een site die veel attributen met javascript toevoegt. \
 Enkel Selenium installeren is echter niet voldoende. Je moet nog de webdriver van je browser naar keuze locaal downloaden. Ik heb deze op mijn pc toegankelijk gemaakt via het PATH zodat python hier gemakkelijk aan kan. Python heeft dit nodig om de instance van de browser te maken.
 
+#### Stap 5: headless driver en deprecation
+Hierna begon ik wat rond te zoeken voor nog interessante dingen om te doen met Selenium. Ik vond een artikel dat uitlegd hoe Selenium sneller en effectiever werkt met een headless driver. Dat betekend wanneer de driver wordt geopend er geen letterlijke browser open moet maar dit allemaal achter de schermen gebeurt. Dit maakt Selenium inderdaad een pakje sneller sinds de browser niet moet laden en dergelijken. \
+Ik ging aan de slag met de headless driver die het artikel voorstelde: PhantomJS (te installeren via npm). Dit werkte wel, maar de console liet mij weten dat de library depricated is, dus niet meer ondersteunt door Selenium. Ookal werkte PhantomJS wel, ik vond dit niet de beste driver om te gebruiken dan. \
+Ver moest ik niet zoeken om te weten te komen dat de drivers van de grote browsers zoals Chrome en Firefox, ook een headless optie ondersteunen. Hier moest ik niets extra voor installeren sinds ik de chromedriver al heb geconfigureerd in de vorige stap. In webscraping_selenium_headless.py heb ik zowel mijn PhantomJS scriptje als mijn headless Chrome scriptje geschreven. Dit is puur als voorbeeld om te tonen dat het werkt, het scriptje zelf doet niets nuttig.
+
 #### Bronnen:
-https://realpython.com/python-web-scraping-practical-introduction/ \
-https://towardsdatascience.com/an-introduction-to-web-scraping-with-python-bc9563fe8860 \
-https://www.crummy.com/software/BeautifulSoup/bs4/doc/ \
-https://www.youtube.com/watch?v=4UcqECQe5Kc \
-https://enginebai.com/2017/04/12/advanced-web-scraping-in-python/ \
-https://selenium-python.readthedocs.io/ \
-https://selenium-python.readthedocs.io/installation.html \
-https://sites.google.com/a/chromium.org/chromedriver/downloads
+[1. Introductie Youtube video](https://www.youtube.com/watch?v=4UcqECQe5Kc) \
+[2. BeautifulSoup documentatie](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) \
+[3. Introductie artikel 1](https://towardsdatascience.com/an-introduction-to-web-scraping-with-python-bc9563fe8860) \
+[4. Introductie artikel 2](https://realpython.com/python-web-scraping-practical-introduction/) \
+[5. Selenium artikel](https://enginebai.com/2017/04/12/advanced-web-scraping-in-python/) \
+[6. Selenium installatie documentatie](https://selenium-python.readthedocs.io/installation.html) \
+[7. Chrome driver download](https://sites.google.com/a/chromium.org/chromedriver/downloads) \
+[8. Headless Selenium met PhantomJS](https://realpython.com/headless-selenium-testing-with-python-and-phantomjs/) \
+[9. Headless Selenium met Chrome](https://stackoverflow.com/questions/48537028/selenium-how-to-use-headless-chrome-on-aws)
