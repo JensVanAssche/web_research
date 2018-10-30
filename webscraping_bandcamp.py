@@ -1,8 +1,8 @@
 from selenium import webdriver
 from csv import writer
 import os
+from datetime import datetime
 
-BANDCAMP_FRONTPAGE = 'https://bandcamp.com/'
 clear = lambda: os.system('cls')
 
 class Bandcamp():
@@ -14,14 +14,26 @@ class Bandcamp():
 		options.add_argument('log-level=2')
 		self.driver = webdriver.Chrome(options=options)
 
+		clear()
+		print('   ___  ___   _  _____  ________   __  ______    ____________  ___   ___  _______ ')
+		print('  / _ )/ _ | / |/ / _ \/ ___/ _ | /  |/  / _ \  / __/ ___/ _ \/ _ | / _ \/ __/ _ \ ')
+		print(' / _  / __ |/    / // / /__/ __ |/ /|_/ / ___/ _\ \/ /__/ , _/ __ |/ ___/ _// , _/ ')
+		print('/____/_/ |_/_/|_/____/\___/_/ |_/_/  /_/_/    /___/\___/_/|_/_/ |_/_/  /___/_/|_| ')
+		print('')
+
+		# maak csv file met headers
+		with open('bandcampdata.csv', 'w', newline='') as csv_file:
+			csv_writer = writer(csv_file)
+			headers = ['Title', 'Artist', 'Album', 'Timestamp']
+			csv_writer.writerow(headers)
+ 
 		self.search()
 
 	def search(self):
 		# ga naar de frontpage
-		self.driver.get(BANDCAMP_FRONTPAGE)
+		self.driver.get('https://bandcamp.com/')
 
 		# vraag user input
-		clear()
 		print('Search for artist:')
 		searchInput = input(">>> ")
 		print('')
@@ -38,21 +50,40 @@ class Bandcamp():
 		# verzamel al de album resultaten in een array
 		searchResults = self.driver.find_elements_by_class_name("album")
 
-		print('Albums found:')
+		# als er geen resultaten zijn, geef een errormessage
+		if not searchResults:
+			print('No albums found, try again')
+			print('')
+		else:
+			print('Albums found:')
 
-		# loop door de album namen en artiestenamen en print ze
-		for val, searchResult in enumerate(searchResults):
-			title = searchResult.find_element_by_css_selector(".heading a").get_attribute("innerHTML").strip()
-			artist = searchResult.find_element_by_class_name("subhead").get_attribute("innerHTML").strip()
-			print(val + 1, title, artist)
-		print('')
-
-		# user input om een album te kiezen, inclusief errorhandling
-		while 1 < 2:
-			print('Choose album:')
-			chooseInput = int(input(">>> "))
+			# loop door de album namen en artiestenamen en print ze
+			for val, searchResult in enumerate(searchResults):
+				title = searchResult.find_element_by_css_selector(".heading a").get_attribute("innerHTML").strip()
+				artist = searchResult.find_element_by_class_name("subhead").get_attribute("innerHTML").strip()
+				print(val + 1, title, artist)
 			print('')
 
+		# user input om een album te kiezen, of naar een andere pagina te gaan, inclusief errorhandling
+		while 1 < 2:
+			print('Commands: a number, more, less, search')
+			chooseInput = input(">>> ")
+			print('')
+
+			if chooseInput == 'more':
+				print('Getting more results...')
+				print('')
+				self.driver.find_element_by_class_name("next").click()
+				self.list()
+			if chooseInput == 'less':
+				print('Getting less results...')
+				print('')
+				self.driver.find_element_by_class_name("prev").click()
+				self.list()
+			if chooseInput == 'search':
+				self.search()
+
+			chooseInput = int(chooseInput)
 			if len(searchResults) > chooseInput - 1:
 				print('Playing album...')
 				print('')
@@ -73,11 +104,19 @@ class Bandcamp():
 		title = self.driver.find_element_by_class_name("title").get_attribute("innerHTML").strip()
 		time = self.driver.find_element_by_class_name("time_total").get_attribute("innerHTML").strip()
 
-		# toon deze
+		# voer de data in in het bestand
+		# de 'a' staat voor append, betekend dat elke lijn onder de anderen wordt geschreven
+		with open('bandcampdata.csv', 'a', newline='') as csv_file:
+			csv_writer = writer(csv_file)
+			csv_writer.writerow(list([title, artist, album, datetime.now().strftime('%Y-%m-%d %H:%M:%S')]))
+
+		# print de data van het nummer in de console
 		clear()
+		print('---------------------------------------')
 		print('NOW PLAYING:', title, 'by', artist)
 		print('on', album)
 		print('length:', time)
+		print('---------------------------------------')
 		print('')
 
 		# deze variable wordt gebruikt bij het pauseren van nummers
@@ -115,6 +154,7 @@ class Bandcamp():
 		# pauseert/speelt het nummer, aan de hand van de pause variable toont het de juiste tekst
 		if pause == 0:
 			print('Paused player')
+			print('Type pause to continue playing')
 			pause = 1
 		else:
 			print('Start player')
