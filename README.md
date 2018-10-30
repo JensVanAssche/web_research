@@ -26,10 +26,13 @@ Hierna begon ik wat rond te zoeken voor nog interessante dingen om te doen met S
 Ik ging aan de slag met de headless driver die het artikel voorstelde: PhantomJS (te installeren via npm). Dit werkte wel, maar de console liet mij weten dat de library depricated is, dus niet meer ondersteunt door Selenium. Ookal werkte PhantomJS wel, ik vond dit niet de beste driver om te gebruiken dan. \
 Ver moest ik niet zoeken om te weten te komen dat de drivers van de grote browsers zoals Chrome en Firefox, ook een headless optie ondersteunen. Hier moest ik niets extra voor installeren sinds ik de chromedriver al heb geconfigureerd in de vorige stap. In webscraping_selenium_headless.py heb ik zowel mijn PhantomJS scriptje als mijn headless Chrome scriptje geschreven. Dit is puur als voorbeeld om te tonen dat het werkt, het scriptje zelf doet niets nuttig.
 
-#### Stap 6: coole Bandcamp player met selenium en headless browser (bron 10)
+#### Stap 6: coole bandcamp player met selenium en headless browser (bron 10)
 Ik ben een artikel tegengekomen dat een aantal hele coole dingen toont dat je kan doen met zo'n headless browser. Het artikel in kwestie legt uit hoe je van bandcamp muziek kan afspelen en je luistergedrag in een database bijhoud, allemaal in de console!!! Toen ik dit voor het eerst aan de praat kreeg viel mijn mond open. Muziek uit de console? Het is eigelijk muziek uit de headless browser uit de console. Maar nog steeds zeer cool! \
 In webscraping_bandcamp.py heb ik een (al zeg ik het zelf) vrij uitgebreide en zeer coole bandcamp muziekplayer gemaakt, waarbij je bandcamp kan navigeren, artiesten kan opzoeken en albums afspelen. De functie van je luistergedrag in een database zetten zit er nog niet in, maar dit wil ik zeker toevoegen in de toekomst. \
 Het opmerkelijke is dat dit script gemaakt is zonder beautifulsoup! De driver kan op zichzelf elementen selecteren op een pagina, deze aanklikken en zoekbalken invullen. Erg spannend allemaal.
+
+#### Stap 6.1: update bandcamp player
+Het bandcamp player script heeft een update gehad. Naast enkele optimalisaties worden je beluisterde tracks opgeslagen in een csv bestand. Dit werkt enkel voor 1 sessie, als je het script sluit en terug opent wordt het bestand overschreven. Dit scriptje schrijven was heel leuk en heeft mij weer nieuwe inzichten gegeven in webscraping.
 
 #### Bronnen:
 [1. Introductie Youtube video](https://www.youtube.com/watch?v=4UcqECQe5Kc) \
